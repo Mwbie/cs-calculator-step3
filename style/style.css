@@ -1,0 +1,266 @@
+*,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: lightgray;
+
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 2fr 320px;
+  grid-template-rows: minmax(30px, 3%) minmax(150px, 35%) minmax(230px, 62%);
+  grid-template-areas:
+    "header header"
+    "result history"
+    "button history";
+}
+header {
+  grid-area: header;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
+}
+.title p {
+  font-size: 0.8rem;
+  padding-left: 2px;
+  font-weight: 400;
+  padding-top: 5px;
+}
+header .icons {
+  justify-content: space-between;
+}
+.icons i {
+  display: inline-flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 100%;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.icons i:last-child {
+  margin-right: 5px;
+}
+.close:hover {
+  background: rgb(206, 89, 89);
+  color: #fff;
+}
+.mini:hover,
+.max:hover {
+  background: rgb(195, 191, 191);
+  color: #fff;
+}
+div.result {
+  grid-area: result;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.burger {
+  display: inline-flex;
+  margin-left: 10px;
+  justify-content: space-between;
+}
+.burger p {
+  margin-left: 15px;
+  font-size: 1.2rem;
+  margin-top: 3px;
+}
+.burger .left-side {
+  display: flex;
+  align-items: baseline;
+}
+.burger .left-side p + img {
+  width: 14px;
+  height: 14px;
+  margin-left: 20px;
+}
+.left-side img {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 16px;
+  cursor: pointer;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+.left-side p {
+  align-self: center;
+}
+.burger .right-side {
+  align-self: center;
+}
+.right-side img {
+  display: none;
+  margin-right: 16px;
+}
+.burger img:hover {
+  background: rgb(195, 191, 191);
+}
+.result .modes {
+  display: flex;
+  max-width: 380px;
+  justify-content: space-between;
+  align-items: center;
+}
+.modes button {
+  font-size: 0.75rem;
+  text-align: center;
+  padding: 10px 0;
+  cursor: pointer;
+  width: 25%;
+  border: none;
+}
+.modes button.active:hover {
+  background: #ddd;
+}
+.modes button.active {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.modes button.de-active {
+  color: #999;
+  cursor: default;
+}
+.modes i {
+  font-size: 0.5rem;
+}
+
+.result .zero {
+  align-self: flex-end;
+  padding-right: 20px;
+  justify-content: flex-end;
+  font-size: calc(2rem + 3.5vh);
+  font-weight: 500;
+}
+.history {
+  grid-area: history;
+  padding-top: 8px;
+  margin-top: 13px;
+}
+.history p {
+  margin-top: 37px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.history h4 {
+  display: inline;
+  margin-right: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.history h4:first-child {
+  padding-bottom: 3px;
+  border-bottom: 2px solid orange;
+}
+.numbers {
+  grid-area: button;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.numbers button {
+  width: 19.7%;
+  height: 19.5%;
+  cursor: pointer;
+  border: none;
+}
+.number {
+  background-color: #fff;
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+.sign {
+  font-size: 1.2rem;
+  background-color: rgb(236, 234, 234);
+}
+.sign i,
+img {
+  background-color: inherit;
+}
+.numbers button:hover {
+  background: #ddd;
+}
+sup,
+sub {
+  background-color: inherit;
+}
+.output{
+align-self: flex-end;
+}
+#first-number{
+  width: 50px;
+  background-color: black;
+}
+@media only screen and (max-width: 1024px) {
+  .numbers button {
+    width: 24.7%;
+    height: 16.3%;
+  }
+  .lg-hide {
+    display: none;
+  }
+  .lg-row {
+    order: -4;
+  }
+  .lg-row1 {
+    order: -3;
+  }
+  .lg-row2 {
+    order: -2;
+  }
+  .lg-row3 {
+    order: -1;
+  }
+}
+@media screen and (max-width: 740px) {
+  .container {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+@media screen and (max-width: 500px) {
+  .container {
+    grid-template-columns: 2fr;
+  }
+  .history {
+    display: none;
+  }
+  .right-side img {
+    display: flex;
+    opacity: 0.5;
+  }
+  .burger .left-side p + img{
+    display: none;
+  }
+}
+@media only screen and (max-height: 620px) {
+  .numbers button {
+    width: 24.7%;
+    height: 16.3%;
+  }
+  .lg-hide {
+    display: none;
+  }
+  .lg-row {
+    order: -4;
+  }
+  .lg-row1 {
+    order: -3;
+  }
+  .lg-row2 {
+    order: -2;
+  }
+  .lg-row3 {
+    order: -1;
+  }
+}
