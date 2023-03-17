@@ -89,9 +89,7 @@ btnPlus.addEventListener('click', () => {
     op = '+';
     output.innerHTML = num1;
     
-    console.log(`n1 is : ${n1} , n2 is ${n2} , num1 is ${num1}  , num 2 is ${num2}`)
-    console.log(temp);
-    console.log(Number(output.innerHTML))
+   
 });
 
 btnMinus.addEventListener('click', () => {
