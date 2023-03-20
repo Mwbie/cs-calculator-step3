@@ -18,7 +18,8 @@ let btnEqual = document.querySelector('#btn-equal')
 let output = document.querySelector('#first-number')
 let btnPercentage = document.querySelector('#btn-percentage')
 let pointFlag = false;
-let num1, num2, op, result, temp ;
+let num1, num2, result, temp = 0;
+let op;
 let resultFlag = false;
 
 //function decelaration
@@ -30,49 +31,36 @@ const clearData = () => {
     num1 = 0;
     num2 = 0;
     op = ''
-    temp = '';
+    temp = 0;
 }
-const calculate = (n1 , n2) => {
-    if (resultFlag == false) {
-        num2 = Number(display.innerHTML)
-    } else {
-        num1 = Number(display.innerHTML)
-    }
 
+const calculate = () => {
+    num2 = Number(display.innerHTML)
     switch (op) {
         case '+':
-        
-     if(num1 && num2 ){
-        result = Number(num1) + Number(num2)
-     }else{
-        result = Number(n1) + Number(n2)
-     }
-            
+            result = num1 + num2;
             break;
         case '-':
-            result = num1 - num2
+            result = num1 - num2;
             break;
         case '*':
-            result = num1 * num2
+            result = num1 * num2;
             break;
         case '/':
-            result = num1 / num2
+            result = num1 / num2;
             break;
     }
-
     temp = result; // store the result into temp
-    console.log(n1 , n2 , num1 , num2)
-    console.log(temp);
-    console.log(Number(output.innerHTML))
-};
+    display.innerHTML = result;
+}
 
 //event decelaration
 btnOneDiv.addEventListener('click', () => {
     num1 = display.innerHTML
     result = 1 / num1
     display.innerHTML = result
-
 })
+
 btnPercentage.addEventListener('click', () => {
     if (result.toString().match('.')) {
         pointFlag = true
@@ -81,39 +69,51 @@ btnPercentage.addEventListener('click', () => {
         result = result / 100
         display.innerHTML = result
     }
-
 })
+
 btnPlus.addEventListener('click', () => {
-    num1 = Number(temp) || Number(display.innerHTML);
-    display.innerHTML = 0;
     op = '+';
-    output.innerHTML = num1;
-    
-   
+    output.innerHTML = display.innerHTML + op;
+    if (temp != 0) {
+        num1 = temp;
+    } else {
+        num1 = Number(display.innerHTML);
+    }
+    display.innerHTML = '';
 });
 
 btnMinus.addEventListener('click', () => {
-    num1 = Number(display.innerHTML)
-    display.innerHTML = 0;
-    op = '-'
-    output.innerHTML = num1 + op
+    op = '-';
+    output.innerHTML = display.innerHTML + op;
+    if (temp != 0) {
+        num1 = temp;
+    } else {
+        num1 = Number(display.innerHTML);
+    }
+    display.innerHTML = '';
 })
 
 btnMul.addEventListener('click', () => {
-    num1 = Number(display.innerHTML)
-    display.innerHTML = 0;
-    op = '*'
-    output.innerHTML = num1 + op
+    op = '*';
+    output.innerHTML = display.innerHTML + op;
+    if (temp != 0) {
+        num1 = temp;
+    } else {
+        num1 = Number(display.innerHTML);
+    }
+    display.innerHTML = '';
 
 })
 
 btnDiv.addEventListener('click', () => {
-    num1 = Number(display.innerHTML)
-    display.innerHTML = 0;
-    op = '/'
-    output.innerHTML = num1 + op
-
-
+    op = '/';
+    output.innerHTML = display.innerHTML + op;
+    if (temp != 0) {
+        num1 = temp;
+    } else {
+        num1 = Number(display.innerHTML);
+    }
+    display.innerHTML = '';
 })
 btnPowTwo.addEventListener('click', () => {
     num1 = Number(display.innerHTML)

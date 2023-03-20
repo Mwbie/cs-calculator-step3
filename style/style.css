@@ -197,11 +197,14 @@ sub {
 }
 .output{
 align-self: flex-end;
+position: relative;
 }
-#first-number{
-  width: 50px;
-  background-color: black;
+.output :first-child {
+position: absolute;
+right: 0;
+line-height: 0.5;
 }
+
 @media only screen and (max-width: 1024px) {
   .numbers button {
     width: 24.7%;
