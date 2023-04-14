@@ -1,3 +1,44 @@
+/* theme */
+:root[data-theme="theme-container"] {
+  --color-container: rgba(210, 210, 210, 0.913);
+  --color-keyboard: #dbdbdbcc;
+  --clolor-namber: #eeececa4;
+  --color-hover: #9494948d;
+  --color-mc-mr: rgba(111, 111, 111, 0.618);
+  --font-family: "Noto Sans", sans-serif;
+}
+
+:root[data-theme="black"] {
+  --color-container: #121212;
+  --color-keyboard: #717171ac;
+  --clolor-namber: #303030f3;
+  --color-mc-mr: order;
+  --color-hover: #ff9900f9;
+  --color-font: rgba(255, 255, 255, 0.807);
+  --radius: 500px 100px;
+  --font-family: "Solway", serif;
+}
+
+:root[data-theme="blue"] {
+  --color-container: #bcdefb;
+  --color-keyboard: #4fb3f6;
+  --clolor-namber: #6fd0f9e5;
+  --color-hover: #0866ea;
+  --color-mc-mr: #004f79;
+  --color-font: #111525;
+  --radius: 40px 0;
+  --font-family: Lucida Sans Unicode, "Lucida Sans";
+}
+
+:root[data-theme="green"] {
+  --color-container: rgba(212, 251, 94, 0.938);
+  --color-keyboard: #79d10e;
+  --clolor-namber: #aae740e5;
+  --color-hover: #15520a9a;
+  --color-mc-mr: rgb(19, 73, 19);
+  --radius: 15px;
+  --font-family: " serif";
+}
 *,
 body {
   margin: 0;
@@ -5,8 +46,12 @@ body {
   box-sizing: border-box;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background-color: lightgray;
-
+  background-color: var(--color-container);
+  /* overflow: hidden; */
+}
+ul,
+li {
+  list-style: none;
 }
 
 .container {
@@ -102,6 +147,7 @@ div.result {
 .right-side img {
   display: none;
   margin-right: 16px;
+  cursor: pointer;
 }
 .burger img:hover {
   background: rgb(195, 191, 191);
@@ -134,7 +180,10 @@ div.result {
 .modes i {
   font-size: 0.5rem;
 }
-
+.output {
+  display: flex;
+  flex-direction: column;
+}
 .result .zero {
   align-self: flex-end;
   padding-right: 20px;
@@ -144,23 +193,41 @@ div.result {
 }
 .history {
   grid-area: history;
-  padding-top: 8px;
-  margin-top: 13px;
+  margin-top: 5px;
 }
-.history p {
+.history h5 {
   margin-top: 37px;
   font-weight: 600;
   font-size: 1.1rem;
 }
+.history p {
+  color: #9b9999;
+  font-size: 1rem;
+}
 
+.history ul {
+  width: 100%;
+  display: block;
+  text-align: end;
+  padding-right: 10px;
+}
+.history ul:hover {
+
+  background: #1d1818;
+}
+.history ul li span {
+  font-weight: bold;
+  display: flex;
+  justify-content: flex-end;
+  color: #000;
+}
 .history h4 {
   display: inline;
   margin-right: 20px;
   font-weight: bold;
   cursor: pointer;
 }
-.history h4:first-child {
-  padding-bottom: 3px;
+.history h4.border-bottom {
   border-bottom: 2px solid orange;
 }
 .numbers {
@@ -195,16 +262,29 @@ sup,
 sub {
   background-color: inherit;
 }
-.output{
-align-self: flex-end;
-position: relative;
+.output {
+  align-self: flex-end;
 }
-.output :first-child {
-position: absolute;
-right: 0;
-line-height: 0.5;
+#first-number {
+  position: relative;
+  left: 0;
+}
+.sm-show {
+  display: none;
+}
+.trash{
+  display: none;
+  position: fixed;
+  bottom: 3px;
+  right: 4px;
+  cursor: pointer;
 }
 
+.hover:hover{
+  width: 100%;
+  z-index: 1000 !important;
+background-color: #000 !important;
+}
 @media only screen and (max-width: 1024px) {
   .numbers button {
     width: 24.7%;
@@ -232,6 +312,10 @@ line-height: 0.5;
   }
 }
 @media screen and (max-width: 500px) {
+  .sm-show {
+    display: block;
+  }
+
   .container {
     grid-template-columns: 2fr;
   }
@@ -242,7 +326,7 @@ line-height: 0.5;
     display: flex;
     opacity: 0.5;
   }
-  .burger .left-side p + img{
+  .burger .left-side p + img {
     display: none;
   }
 }

@@ -1,3 +1,5 @@
+//module
+import * as theme from "./_theme.js"
 //variable declaration
 let display = document.querySelector('.zero')
 let btnNumbers = document.querySelectorAll('.number')
@@ -17,10 +19,15 @@ let btnPoint = document.querySelector('#btn-point')
 let btnEqual = document.querySelector('#btn-equal')
 let output = document.querySelector('#first-number')
 let btnPercentage = document.querySelector('#btn-percentage')
+let historySection = document.querySelector('.history')
+let historyBtn = document.querySelector('#history')
+let memoryBtn = document.querySelector('#memory')
+let historyMsg = document.querySelector('#msg')
 let pointFlag = false;
 let num1, num2, result, temp = 0;
 let op;
 let resultFlag = false;
+let history = []
 
 //function decelaration
 const clearData = () => {
@@ -32,12 +39,15 @@ const clearData = () => {
     num2 = 0;
     op = ''
     temp = 0;
+    history = []
+    showHistory(history)   
 }
 
-const calculate = () => {
+const calculate = (number1,number2) => {
+  
     num2 = Number(display.innerHTML)
     switch (op) {
-        case '+':
+        case '+': 
             result = num1 + num2;
             break;
         case '-':
@@ -52,6 +62,24 @@ const calculate = () => {
     }
     temp = result; // store the result into temp
     display.innerHTML = result;
+    output.innerHTML = num1 + op + num2;
+    history.push({num1, num2, op, result}); // add the calculation to the history
+  
+}
+const showHistory = (historyList) => {
+
+   historyList.forEach(item=>{
+    historySection.insertAdjacentHTML("beforeend",
+    `<ul> <li> <p>${history[0].num1} + ${history[0].num2}  = </p> <span> ${history[0].result}</span> </li> </ul>`
+    )
+   })
+   if(historySection.querySelector('ul') !== null){
+    historyMsg.innerHTML = ''
+   }else{
+    historyMsg.innerHTML = `There's no history yet`
+   }
+   
+   history = []
 }
 
 //event decelaration
@@ -79,7 +107,8 @@ btnPlus.addEventListener('click', () => {
     } else {
         num1 = Number(display.innerHTML);
     }
-    display.innerHTML = '';
+   
+    display.innerHTML = 0;
 });
 
 btnMinus.addEventListener('click', () => {
@@ -90,7 +119,7 @@ btnMinus.addEventListener('click', () => {
     } else {
         num1 = Number(display.innerHTML);
     }
-    display.innerHTML = '';
+    display.innerHTML = 0;
 })
 
 btnMul.addEventListener('click', () => {
@@ -101,7 +130,7 @@ btnMul.addEventListener('click', () => {
     } else {
         num1 = Number(display.innerHTML);
     }
-    display.innerHTML = '';
+    display.innerHTML = 0;
 
 })
 
@@ -113,7 +142,7 @@ btnDiv.addEventListener('click', () => {
     } else {
         num1 = Number(display.innerHTML);
     }
-    display.innerHTML = '';
+    display.innerHTML = 0;
 })
 btnPowTwo.addEventListener('click', () => {
     num1 = Number(display.innerHTML)
@@ -148,7 +177,7 @@ btnEqual.addEventListener('click', () => {
     calculate(Number(temp) , Number(display.innerHTML))
     display.innerHTML = result
     resultFlag = true
-    output.innerHTML = ''
+    showHistory(history)
 })
 
 
@@ -195,4 +224,21 @@ btnClear.addEventListener('click', () => {
 })
 btnLastClear.addEventListener('click', () => {
     display.innerHTML = 0
+})
+historyBtn.addEventListener('click',(e)=>{
+if(e.target.classList.contains('active')){
+return
+}else{
+    memoryBtn.classList.remove('active')
+    e.target.classList.add('active')
+}
+
+})
+memoryBtn.addEventListener('click',(e)=>{
+    if(e.target.classList.contains('active')){
+    return
+    }else{
+        historyBtn.classList.remove('active')
+        e.target.classList.add('active')
+    }
 })
