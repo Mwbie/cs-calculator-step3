@@ -1,8 +1,9 @@
 export const historySection = document.querySelector('#history-section');
-export const historyMsg = document.querySelector('#msg')
+export const historyMsg = document.querySelector('#history-msg')
 export let historyArray = []
 const historyIcon = document.querySelector('.right-side')
-const trashButton = document.querySelector('.trash')
+export const historyTrash = document.querySelector('#history-trash')
+const mTrash = document.querySelector('#memory-trash');
 export function showHistory(historyList) {
 
 
@@ -32,7 +33,7 @@ export function showHistory(historyList) {
 
         historyMsg.innerHTML = '';
       }
-      trashButton.style.display = 'block'
+      historyTrash.style.display = 'block'
       historyArray = []
 };
 
@@ -43,8 +44,9 @@ historySection.style.zIndex = 1000
 
 })
 
-trashButton.addEventListener('click',()=>{
+historyTrash.addEventListener('click',()=>{
   historySection.innerHTML = ''
-  trashButton.style.display = 'none'
+  historyTrash.style.display = 'none'
   historyMsg.innerHTML = `There's no history yet`
+  historyArray = []
 })

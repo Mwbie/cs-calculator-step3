@@ -1,19 +1,31 @@
 /* theme */
-:root[data-theme="theme-container"] {
+:root[data-theme="main-theme"] {
   --color-container: rgba(210, 210, 210, 0.913);
-  --color-keyboard: #dbdbdbcc;
-  --clolor-namber: #eeececa4;
-  --color-hover: #9494948d;
+  --color-sign: rgb(236, 234, 234);
+  --color-number: #fff;
+  --color-hover: rgba(87, 82, 82, 0.5);
+  --color-hover-ul : rgba(0,0,0,1);
   --color-mc-mr: rgba(111, 111, 111, 0.618);
   --font-family: "Noto Sans", sans-serif;
+  --radius : 0 ;
 }
-
+:root[data-theme="green"] {
+  --color-container: rgba(212, 251, 94, 0.938);
+  --color-sign: #79d10e;
+  --color-number: #aae740e5;
+  --color-hover: #15520a9a;
+  --color-hover-ul : #15520a9a;
+  --color-mc-mr: rgb(19, 73, 19);
+  --radius: 15px;
+  --font-family: " serif";
+}
 :root[data-theme="black"] {
   --color-container: #121212;
-  --color-keyboard: #717171ac;
-  --clolor-namber: #303030f3;
+  --color-sign: #717171ac;
+  --color-number: #303030f3;
   --color-mc-mr: order;
   --color-hover: #ff9900f9;
+  --color-hover-ul : #ff9900f9;
   --color-font: rgba(255, 255, 255, 0.807);
   --radius: 500px 100px;
   --font-family: "Solway", serif;
@@ -21,37 +33,30 @@
 
 :root[data-theme="blue"] {
   --color-container: #bcdefb;
-  --color-keyboard: #4fb3f6;
-  --clolor-namber: #6fd0f9e5;
+  --color-sign: #4fb3f6;
+  --color-number: #6fd0f9e5;
   --color-hover: #0866ea;
+  --color-hover-ul : rgba(8, 102, 234, 1) !important;
   --color-mc-mr: #004f79;
   --color-font: #111525;
   --radius: 40px 0;
   --font-family: Lucida Sans Unicode, "Lucida Sans";
 }
 
-:root[data-theme="green"] {
-  --color-container: rgba(212, 251, 94, 0.938);
-  --color-keyboard: #79d10e;
-  --clolor-namber: #aae740e5;
-  --color-hover: #15520a9a;
-  --color-mc-mr: rgb(19, 73, 19);
-  --radius: 15px;
-  --font-family: " serif";
-}
+
 *,
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: var(--font-family);
   background-color: var(--color-container);
   /* overflow: hidden; */
 }
 ul,
 li {
   list-style: none;
+  background-color: transparent;
 }
 
 .container {
@@ -65,6 +70,7 @@ li {
     "result history"
     "button history";
 }
+
 header {
   grid-area: header;
   width: 100%;
@@ -72,15 +78,18 @@ header {
   justify-content: space-between;
   padding-left: 10px;
 }
+
 .title p {
   font-size: 0.8rem;
   padding-left: 2px;
   font-weight: 400;
   padding-top: 5px;
 }
+
 header .icons {
   justify-content: space-between;
 }
+
 .icons i {
   display: inline-flex;
   text-align: center;
@@ -128,15 +137,25 @@ div.result {
   width: 14px;
   height: 14px;
   margin-left: 20px;
+  background-color: var(--color-container);
+  ;
 }
 .left-side img {
+ 
   display: flex;
   justify-content: center;
   align-self: center;
-  width: 16px;
+  width: 25px;
+  height: 25px;
   cursor: pointer;
   margin-top: 5px;
   margin-right: 5px;
+ 
+}
+.left-side img:hover,
+.burger .left-side p + img:hover{
+  background-color: var(--color-hover);
+  border-radius: var(--radius);
 }
 .left-side p {
   align-self: center;
@@ -149,9 +168,7 @@ div.result {
   margin-right: 16px;
   cursor: pointer;
 }
-.burger img:hover {
-  background: rgb(195, 191, 191);
-}
+
 .result .modes {
   display: flex;
   max-width: 380px;
@@ -167,7 +184,8 @@ div.result {
   border: none;
 }
 .modes button.active:hover {
-  background: #ddd;
+  background: var(--color-hover);
+  border-radius: var(--radius);
 }
 .modes button.active {
   font-size: 0.9rem;
@@ -206,20 +224,26 @@ div.result {
 }
 
 .history ul {
-  width: 100%;
+  width: 97%;
   display: block;
   text-align: end;
-  padding-right: 10px;
+  /* padding-right: 10px; */
+  
 }
-.history ul:hover {
+/* .history p:hover{
+background-color: var(--color-hover) !important;
+} */
 
-  background: #1d1818;
+.hover:hover{
+  background-color: var(--color-hover-ul) !important;
 }
+
 .history ul li span {
   font-weight: bold;
   display: flex;
   justify-content: flex-end;
   color: #000;
+  background-color: transparent;
 }
 .history h4 {
   display: inline;
@@ -243,24 +267,33 @@ div.result {
   border: none;
 }
 .number {
-  background-color: #fff;
+  background-color: var(--color-number);
+  border-radius: var(--radius);
   font-weight: bolder;
   font-size: 1.5rem;
 }
 .sign {
   font-size: 1.2rem;
-  background-color: rgb(236, 234, 234);
+  background-color: var(--color-sign);
+  border-radius: var(--radius);
 }
 .sign i,
 img {
-  background-color: inherit;
+  background-color: transparent;
 }
-.numbers button:hover {
-  background: #ddd;
+.sign i:hover,
+img:hover {
+  background-color: transparent;
+}
+.number:hover{
+  background-color: var(--color-hover);
+}
+.sign:hover{
+  background-color: var(--color-hover);
 }
 sup,
 sub {
-  background-color: inherit;
+  background-color: transparent;
 }
 .output {
   align-self: flex-end;
@@ -278,13 +311,57 @@ sub {
   bottom: 3px;
   right: 4px;
   cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+.trash:hover{
+  background-color: var(--color-hover);
+  border-radius: var(--radius);
 }
 
-.hover:hover{
-  width: 100%;
-  z-index: 1000 !important;
-background-color: #000 !important;
+.trash i
+{
+  display: flex;
+justify-content: center;
+align-items: center;
+background: transparent;
+height: 100%;
+
 }
+.mobile-parent{
+  position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 60vh;
+    width: 100%;
+    display: none;
+    background-color: rgb(190, 190, 190) !important;
+}
+.mobile-histoory{
+  background-color: rgb(190, 190, 190) !important;
+  width: 70%;
+  padding: 30px;
+  border-radius: 6px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 22px;
+  font-family: arial;
+  position: relative;
+
+}
+.mobile-histoory ul li div:hover{
+  background-color: var(--color-hover);
+}
+.mobile-memory{
+  background-color: rgb(190, 190, 190) !important;
+
+}
+
+
+
+
 @media only screen and (max-width: 1024px) {
   .numbers button {
     width: 24.7%;

@@ -1,7 +1,7 @@
 //module
 import * as theme from "./_theme.js";
-import { showHistory, historyArray, historyMsg , historySection } from "./_history.js";
-import {memorySection , mMinusFunc , mPlusFunc, mcFunc}  from './_memory.js'
+import { showHistory, historyArray, historyMsg, historySection, historyTrash } from "./_history.js";
+import { memorySection, memoryMsg, memoryTrash , mDrop } from './_memory.js'
 
 //Variable
 const buttonContainer = document.querySelector('.numbers');
@@ -11,12 +11,15 @@ const secondaryDisplay = document.querySelector('#first-number');
 let result;
 let pointFlag = false;
 let temp;
+
 let calcArray = {
     numbers: [],
     operators: [],
 };
-
 // 
+
+
+
 
 //functions
 const calculation = () => {
@@ -55,6 +58,7 @@ const calculation = () => {
 }
 
 function selectButton(button, buttonId) {
+
     if (button.classList.contains('border-bottom')) {
         return;
     } else {
@@ -63,23 +67,35 @@ function selectButton(button, buttonId) {
         button.classList.add('border-bottom');
     }
     if (buttonId === 'history') {
-        if (historySection.innerHTML === '') {
+        if (!historySection.querySelector('ul')) {
             historyMsg.innerHTML = `There's no history yet`
+            historyTrash.style.display = ' none'
+            memoryTrash.style.display = 'none'
         } else {
             historyMsg.innerHTML = ``
+            historyTrash.style.display = ' block'
+            memoryTrash.style.display = 'none'
         }
         historySection.style.display = 'block'
+        historyMsg.style.display = 'block'
         memorySection.style.display = 'none'
+        memoryMsg.style.display = 'none'
 
 
     } else {
-        if (memorySection.innerHTML === '') {
-            historyMsg.innerHTML = `There's no memory yet`
+        if (!memorySection.querySelector('ul')) {
+            memoryMsg.innerHTML = `There's no memory yet`
+            historyTrash.style.display = 'none'
+            memoryTrash.style.display = 'none'
         } else {
-            historyMsg.innerHTML = ``
+            memoryMsg.innerHTML = ``
+            historyTrash.style.display = 'none'
+            memoryTrash.style.display = 'block'
         }
         historySection.style.display = 'none'
+        historyMsg.style.display = 'none'
         memorySection.style.display = 'block'
+        memoryMsg.style.display = 'block'
     }
 }
 function pushToArray(number, operator) {
@@ -156,7 +172,7 @@ buttonContainer.addEventListener('click', (e) => {
                         calculation()
                     }
                     showHistory(historyArray)
-                
+
                     break;
                 case 'btn-clear':
                     mainDisplay.innerHTML = 0
@@ -165,7 +181,7 @@ buttonContainer.addEventListener('click', (e) => {
                     // resultFlag = false;
                     calcArray.numbers = [];
                     calcArray.operators = [];
-                    // historyArray = [];
+                    historyArray = [];
                     temp = '';
                     break;
                 case 'btn-back-space':
@@ -244,6 +260,5 @@ buttonContainer.addEventListener('click', (e) => {
 
     }
 })
-
 
 

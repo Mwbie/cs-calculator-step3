@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="theme-container">
+<html lang="en" data-theme="main-theme">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -78,16 +78,24 @@
           <h4 id="history" class="border-bottom">History</h4>
           <h4 id="memory">Memory</h4>
         </span>
-        <div >
-          <h5 id="msg">There's no history yet</h5>
-          <div id="history-section"></div>
-          <div id="memory-section" style="display: none;">
-          
-          </div>
-        </div>
-        <span class="trash">
+        <h5 id="history-msg">There's no history yet</h5>
+        <span id="history-trash" class="trash"  style="display: none;">
           <i class="fa-solid fa-trash-can"></i>
         </span>
+        <h5 id="memory-msg" style="display: none;">There's no memory yet</h5>
+        <span id="memory-trash" class="trash" style="display: none;">
+          <i class="fa-solid fa-trash-can"></i>
+        </span>
+        <div >
+          
+          <div id="history-section">
+
+          </div>
+          <div id="memory-section" style="display: none;">
+
+          </div>
+        </div>
+
       </div>
       <!--buttons section-->
       <div class="numbers">
@@ -152,6 +160,15 @@
         </button>
       </div>
     </div>
+    <div class="mobile-parent">
+      <div class="mobile-memory">
+asdf
+      </div>
+      <div class="mobile-history">
+
+      </div>
+    </div>
+
     <script type="module" src="js/app2.js"></script>
   </body>
 </html>
