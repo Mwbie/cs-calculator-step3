@@ -1,7 +1,7 @@
 //module
-import * as theme from "./_theme.js";
-import { showHistory, historyArray, historyMsg, historySection, historyTrash } from "./_history.js";
-import { memorySection, memoryMsg, memoryTrash , mDrop } from './_memory.js'
+import * as theme from "../_theme.js";
+import { showHistory, historyArray, historyMsg, historySection, historyTrash } from "../_history.js";
+import { memorySection, memoryMsg, memoryTrash , mDrop } from '../_memory.js'
 
 //Variable
 const buttonContainer = document.querySelector('.numbers');
