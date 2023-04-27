@@ -2,7 +2,6 @@ export const historySection = document.querySelector('#history-section');
 export const historyMsg = document.querySelector('#history-msg')
 export let historyArray = []
 export const historyTrash = document.querySelector('#history-trash')
-const mTrash = document.querySelector('#memory-trash');
 const historyIcon = document.querySelector('.history-icon')
 const historyButton = document.querySelector('#history')
 const memoryButton = document.querySelector('#memory')

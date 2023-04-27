@@ -1,15 +1,14 @@
 
-
 export const modes = document.querySelector('.modes');
 export const memorySection = document.querySelector('#memory-section');
 export const memoryMsg = document.querySelector('#memory-msg');
 export const historyMsg = document.querySelector('#history-msg');
 export const memoryTrash = document.querySelector('#memory-trash');
+export const mDrop = document.querySelector('.sm-show');
+export let memoryArray = [];
 const mainDisplay = document.querySelector('.zero');
 const mcButton = document.querySelector('.mc');
 const mrButton = document.querySelector('.mr');
-export const mDrop = document.querySelector('.sm-show');
-export let memoryArray = [];
 const numbers = document.querySelector('.numbers')
 const history = document.querySelector('.history')
 const historyButton = document.querySelector('#history')
@@ -241,6 +240,19 @@ export function msFunc(numbArray) {
     memoryTrash.style.display = ' block'
 }
 
+function mDropFunc() {
+    numbers.style.display = 'none'
+    history.style.display = 'block'
+    historyButton.style.display = 'none'
+    memoryButton.click();
+    memoryButton.style.display = 'none'
+    window.addEventListener('click', (e) => {
+        if (e.target.classList[0] == 'result') {
+            numbers.style.display = 'flex'
+            history.style.display = 'none'
+        }
+    })
+}
 
 
 
@@ -304,19 +316,6 @@ modes.addEventListener('click', (e) => {
     }
 });
 
-function mDropFunc() {
-    numbers.style.display = 'none'
-    history.style.display = 'block'
-    historyButton.style.display = 'none'
-    memoryButton.click();
-    memoryButton.style.display = 'none'
-    window.addEventListener('click', (e) => {
-        if (e.target.classList[0] == 'result') {
-            numbers.style.display = 'flex'
-            history.style.display = 'none'
-        }
-    })
-}
 
 memoryTrash.addEventListener('click', () => {
     mcFunc()

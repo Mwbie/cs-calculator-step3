@@ -1,7 +1,7 @@
 //module
 import * as theme from "./_theme.js";
-import { showHistory, historyArray, historyMsg, historySection, historyTrash } from "./_history.js";
-import { memorySection, memoryMsg, memoryTrash , mDrop } from './_memory.js'
+import { showHistory, historyArray, historyMsg, historySection, historyTrash } from "../js/_history.js";
+import { memorySection, memoryMsg, memoryTrash } from './_memory.js'
 
 //Variable
 const buttonContainer = document.querySelector('.numbers');
@@ -11,7 +11,7 @@ const secondaryDisplay = document.querySelector('#first-number');
 let result;
 let pointFlag = false;
 let temp;
-
+let icons = document.querySelector('.icons')
 let calcArray = {
     numbers: [],
     operators: [],
@@ -128,7 +128,23 @@ function showSecondDisplay() {
     })
     secondaryDisplay.innerHTML = x
 }
-
+function closeWindow() {
+    window.close();
+}
+function minimizeWindow() {
+    console.log('this option not working:)');
+}
+function fullScreenWindow() {
+    if (window.document.documentElement.requestFullscreen) {
+        window.document.documentElement.requestFullscreen();
+    } else if (window.document.documentElement.webkitRequestFullscreen) {
+        window.document.documentElement.webkitRequestFullscreen();
+    } else if (window.document.documentElement.mozRequestFullScreen) {
+        window.document.documentElement.mozRequestFullScreen();
+    } else if (window.document.documentElement.msRequestFullscreen) {
+        window.document.documentElement.msRequestFullscreen();
+    }
+}
 //EventListener
 histroryMemory.addEventListener('click', (e) => {
     switch (e.target.id) {
@@ -261,4 +277,17 @@ buttonContainer.addEventListener('click', (e) => {
     }
 })
 
+icons.addEventListener('click', (e) => {
 
+    switch (e.target.classList[0]) {
+        case 'minus':
+            minimizeWindow()
+            break;
+        case 'full':
+            fullScreenWindow()
+            break;
+        case 'close':
+            closeWindow()
+            break;
+    }
+})
