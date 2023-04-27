@@ -1,12 +1,16 @@
 export const historySection = document.querySelector('#history-section');
 export const historyMsg = document.querySelector('#history-msg')
 export let historyArray = []
-const historyIcon = document.querySelector('.right-side')
 export const historyTrash = document.querySelector('#history-trash')
 const mTrash = document.querySelector('#memory-trash');
+const historyIcon = document.querySelector('.history-icon')
+const historyButton = document.querySelector('#history')
+const memoryButton = document.querySelector('#memory')
+const numbers = document.querySelector('.numbers')
+const history = document.querySelector('.history')
+
+
 export function showHistory(historyList) {
-
-
       if (historyList.length === 0) {
         historyMsg.innerHTML = `There's no history yet`;
       } else {
@@ -50,3 +54,39 @@ historyTrash.addEventListener('click',()=>{
   historyMsg.innerHTML = `There's no history yet`
   historyArray = []
 })
+
+
+historyIcon.addEventListener('click',()=>{
+  numbers.style.display = 'none'
+  history.style.display = 'block'
+  historyButton.style.display = 'none'
+  historyButton.click();
+  memoryButton.style.display = 'none'
+    window.addEventListener('click', (e) => {
+        if (e.target.classList[0] == 'result') {
+            numbers.style.display = 'flex'
+            history.style.display = 'none'
+        }
+    })
+})
+window.addEventListener('resize', () => {
+    const mediaQuery = window.matchMedia("(max-width: 500px)")
+
+    if (mediaQuery.matches) {
+        history.style.gridArea = 'button'
+        history.style.display = 'none'
+        historyButton.click();
+        historyButton.style.display = 'none'
+        memoryButton.style.display = 'none'
+
+    } else {
+      historyButton.click();
+        numbers.style.display = 'flex'
+        history.style.gridArea = 'history'
+        history.style.display = 'block'
+        historyButton.style.display = 'inline'
+        memoryButton.style.display = 'inline'
+    }
+})
+
+

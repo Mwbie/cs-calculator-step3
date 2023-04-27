@@ -3,8 +3,8 @@
   --color-container: rgba(210, 210, 210, 0.913);
   --color-sign: rgb(236, 234, 234);
   --color-number: #fff;
-  --color-hover: rgba(87, 82, 82, 0.5);
-  --color-hover-ul : rgba(0,0,0,1);
+  --color-hover: rgba(128, 128, 128, 0.618);
+  --color-hover-ul :rgba(148, 142, 142, 0.618);
   --color-mc-mr: rgba(111, 111, 111, 0.618);
   --font-family: "Noto Sans", sans-serif;
   --radius : 0 ;
@@ -50,13 +50,19 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: var(--font-family);
-  background-color: var(--color-container);
+
   /* overflow: hidden; */
+}
+body{
+  background-color: var(--color-container);
 }
 ul,
 li {
   list-style: none;
   background-color: transparent;
+}
+p{
+  background-color: unset;
 }
 
 .container {
@@ -182,6 +188,8 @@ div.result {
   cursor: pointer;
   width: 25%;
   border: none;
+  background-color: var(--color-container);
+  outline: none;
 }
 .modes button.active:hover {
   background: var(--color-hover);
@@ -208,6 +216,7 @@ div.result {
   justify-content: flex-end;
   font-size: calc(2rem + 3.5vh);
   font-weight: 500;
+  color: var(--color-font);
 }
 .history {
   grid-area: history;
@@ -219,15 +228,14 @@ div.result {
   font-size: 1.1rem;
 }
 .history p {
-  color: #9b9999;
   font-size: 1rem;
 }
 
 .history ul {
-  width: 97%;
+  width: 100%;
   display: block;
   text-align: end;
-  /* padding-right: 10px; */
+  padding-right: 10px;
   
 }
 /* .history p:hover{
@@ -242,8 +250,8 @@ background-color: var(--color-hover) !important;
   font-weight: bold;
   display: flex;
   justify-content: flex-end;
-  color: #000;
-  background-color: transparent;
+  color: var(--color-font);
+  background-color: unset;
 }
 .history h4 {
   display: inline;
@@ -328,39 +336,20 @@ background: transparent;
 height: 100%;
 
 }
-.mobile-parent{
-  position: fixed;
-    bottom: 0;
-    left: 0;
-    height: 60vh;
-    width: 100%;
-    display: none;
-    background-color: rgb(190, 190, 190) !important;
-}
-.mobile-histoory{
-  background-color: rgb(190, 190, 190) !important;
-  width: 70%;
-  padding: 30px;
-  border-radius: 6px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 22px;
-  font-family: arial;
+.m{
   position: relative;
-
 }
-.mobile-histoory ul li div:hover{
-  background-color: var(--color-hover);
+#checkBox{
+  position: absolute;
+  bottom: 10px;
+  right: 22px;
+  visibility: hidden;
+  width: 15px;
+  height: 15px;
+  border: none;
+  outline: none;
+  background: var(--color-container);
 }
-.mobile-memory{
-  background-color: rgb(190, 190, 190) !important;
-
-}
-
-
-
 
 @media only screen and (max-width: 1024px) {
   .numbers button {
@@ -396,8 +385,13 @@ height: 100%;
   .container {
     grid-template-columns: 2fr;
   }
+  
   .history {
+    grid-area: button;
     display: none;
+  }
+  .numbers{
+    display: flex;
   }
   .right-side img {
     display: flex;
