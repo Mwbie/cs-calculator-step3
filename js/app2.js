@@ -1,13 +1,7 @@
 //module
-<<<<<<< HEAD
 import * as theme from "./_theme.js";
 import { showHistory, historyArray, historyMsg, historySection, historyTrash } from "../js/_history.js";
 import { memorySection, memoryMsg, memoryTrash } from './_memory.js'
-=======
-import * as theme from "../_theme.js";
-import { showHistory, historyArray, historyMsg, historySection, historyTrash } from "../_history.js";
-import { memorySection, memoryMsg, memoryTrash , mDrop } from '../_memory.js'
->>>>>>> c92e716af7a8ac21376e6ad1c450fa469c3fd57f
 
 //Variable
 const buttonContainer = document.querySelector('.numbers');
