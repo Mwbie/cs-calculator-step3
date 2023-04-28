@@ -6,7 +6,7 @@
   --color-hover: rgba(128, 128, 128, 0.618);
   --color-hover-ul :rgba(148, 142, 142, 0.618);
   --color-mc-mr: rgba(111, 111, 111, 0.618);
-  --font-family: "Noto Sans", sans-serif;
+  --font-family: "Segoe UI";
   --radius : 0 ;
 }
 :root[data-theme="green"] {
@@ -209,6 +209,7 @@ div.result {
 .output {
   display: flex;
   flex-direction: column;
+  align-self: flex-end;
 }
 .result .zero {
   align-self: flex-end;
@@ -245,7 +246,9 @@ background-color: var(--color-hover) !important;
 .hover:hover{
   background-color: var(--color-hover-ul) !important;
 }
-
+.history-hover:hover{
+  background-color: var(--color-hover-ul) !important;
+}
 .history ul li span {
   font-weight: bold;
   display: flex;
@@ -302,9 +305,6 @@ img:hover {
 sup,
 sub {
   background-color: transparent;
-}
-.output {
-  align-self: flex-end;
 }
 #first-number {
   position: relative;
@@ -395,7 +395,7 @@ height: 100%;
   }
   .right-side img {
     display: flex;
-    opacity: 0.5;
+   
   }
   .burger .left-side p + img {
     display: none;

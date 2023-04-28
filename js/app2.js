@@ -38,7 +38,7 @@ const calculation = () => {
             case "-":
                 result -= number;
                 break;
-            case "*":
+            case "×":
                 result *= number;
                 break;
             case "/":
@@ -84,7 +84,7 @@ function selectButton(button, buttonId) {
 
     } else {
         if (!memorySection.querySelector('ul')) {
-            memoryMsg.innerHTML = `There's no memory yet`
+            memoryMsg.innerHTML = `There's nothing saved in memory`
             historyTrash.style.display = 'none'
             memoryTrash.style.display = 'none'
         } else {
@@ -110,7 +110,7 @@ function pushToArray(number, operator) {
             showSecondDisplay()
             break;
         case "*":
-            calcArray.operators.push('*');
+            calcArray.operators.push('×');
             showSecondDisplay()
             break;
         case "/":
@@ -127,6 +127,7 @@ function showSecondDisplay() {
         if (calcArray.operators[index]) x += calcArray.operators[index]
     })
     secondaryDisplay.innerHTML = x
+    
 }
 function closeWindow() {
     window.close();
@@ -188,7 +189,7 @@ buttonContainer.addEventListener('click', (e) => {
                         calculation()
                     }
                     showHistory(historyArray)
-
+                    secondaryDisplay.innerHTML += ' ='
                     break;
                 case 'btn-clear':
                     mainDisplay.innerHTML = 0

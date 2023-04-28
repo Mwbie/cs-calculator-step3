@@ -19,7 +19,7 @@ export function mPlusFunc(array) {
 
     let myDigit = 0;
     if (memorySection.querySelector('ul')) {
-        debugger
+     
         let spanNumber = document.querySelector('ul li p span')
         myDigit = +array[array.length - 1]
         myDigit = +myDigit + +mainDisplay.innerHTML;
@@ -47,7 +47,6 @@ export function mPlusFunc(array) {
             buttonsContainer.style.visibility = ' visible'
         })
         mainUl.addEventListener('mouseleave', () => {
-
             buttonsContainer.style.visibility = ' hidden'
         })
         const mcBtn = document.getElementById(`mc-${0}`);
@@ -191,10 +190,10 @@ export function msFunc(numbArray) {
         );
 
         const mainUl = document.querySelector('.hover')
-        mainUl.addEventListener('dblclick', () => {
-            let lastNumb = memoryArray[index]
-            mainDisplay.innerHTML = lastNumb
-        })
+        // mainUl.addEventListener('dblclick', () => {
+        //     let lastNumb = memoryArray[index]
+        //     mainDisplay.innerHTML = lastNumb
+        // })
         let buttonsContainer = document.getElementById('buttons-container')
         mainUl.addEventListener('mouseenter', () => {
             buttonsContainer.style.visibility = ' visible'
@@ -230,10 +229,7 @@ export function msFunc(numbArray) {
             let currentNumber = +memoryArray[index];
             currentNumber -= +mainDisplay.innerHTML
             spanNumber.innerHTML = currentNumber
-            console.log(memoryArray[index]);
             memoryArray[index] = currentNumber;
-            console.log(memoryArray);
-
         });
     });
     classCheck()
@@ -268,7 +264,7 @@ function classCheck() {
         mcButton.classList.replace('active', 'de-active')
         mrButton.classList.replace('active', 'de-active')
         mDrop.classList.replace('active', 'de-active')
-        memoryMsg.innerHTML = `There's no memory yet`
+        memoryMsg.innerHTML = `There's nothing saved in memory`
         memoryTrash.style.display = 'none'
 
 
@@ -333,7 +329,7 @@ window.addEventListener('resize', () => {
         memoryButton.style.display = 'none'
 
     } else {
-        memoryButton.click();
+       
         numbers.style.display = 'flex'
         history.style.gridArea = 'history'
         history.style.display = 'block'

@@ -18,7 +18,7 @@ export function showHistory(historyList) {
         let operators = calcItem.operators;
         let result = historyList[1];
           let historyItem = `
-            <ul   class = 'hover'>
+            <ul   class = 'history-hover'>
               <li>
                 <p>
                   ${numbers[0]} ${operators[0]} ${numbers[1]}`;
@@ -79,7 +79,7 @@ window.addEventListener('resize', () => {
         memoryButton.style.display = 'none'
 
     } else {
-      historyButton.click();
+   
         numbers.style.display = 'flex'
         history.style.gridArea = 'history'
         history.style.display = 'block'
