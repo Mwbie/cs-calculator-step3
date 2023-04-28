@@ -24,7 +24,7 @@ let calcArray = {
 //functions
 const calculation = () => {
     if (!temp) {
-        result = calcArray.numbers[0];
+        result = calcArray.numbers[0] ;
     } else {
         result = temp;
     }
@@ -171,15 +171,19 @@ buttonContainer.addEventListener('click', (e) => {
             switch (e.target.id) {
                 case 'btn-div':
                     pushToArray(parseFloat(mainDisplay.innerHTML), '/')
+                    pointFlag = false
                     break;
                 case 'btn-mul':
                     pushToArray(parseFloat(mainDisplay.innerHTML), '*')
+                    pointFlag = false
                     break;
                 case 'btn-minus':
                     pushToArray(parseFloat(mainDisplay.innerHTML), '-')
+                    pointFlag = false
                     break;
                 case 'btn-plus':
                     pushToArray(parseFloat(mainDisplay.innerHTML), '+')
+                    pointFlag = false
                     break;
                 case 'btn-equal':
                     if (mainDisplay.textContent == '0') {
