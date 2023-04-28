@@ -266,9 +266,6 @@ function classCheck() {
         mDrop.classList.replace('active', 'de-active')
         memoryMsg.innerHTML = `There's nothing saved in memory`
         memoryTrash.style.display = 'none'
-
-
-
     }
 }
 
@@ -325,7 +322,7 @@ window.addEventListener('resize', () => {
         history.style.gridArea = 'button'
         history.style.display = 'none'
         historyButton.style.display = 'none'
-        memoryButton.click();
+
         memoryButton.style.display = 'none'
 
     } else {

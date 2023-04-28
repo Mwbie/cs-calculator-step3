@@ -74,7 +74,7 @@ window.addEventListener('resize', () => {
     if (mediaQuery.matches) {
         history.style.gridArea = 'button'
         history.style.display = 'none'
-        historyButton.click();
+
         historyButton.style.display = 'none'
         memoryButton.style.display = 'none'
 
