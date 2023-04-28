@@ -128,7 +128,6 @@ div.result {
 }
 .burger {
   display: inline-flex;
-  margin-left: 10px;
   justify-content: space-between;
 }
 .burger p {
