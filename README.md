@@ -1,5 +1,5 @@
 # cs-calculator-step3
-#Calculator Program
+Calculator Program
 
 This is a calculator program that mimics the functionality of the Windows 10 calculator, implemented using modular programming.
 
