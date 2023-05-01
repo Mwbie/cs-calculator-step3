@@ -283,20 +283,10 @@ modes.addEventListener('click', (e) => {
             mrFunc();
             break;
         case 'm-plus':
-            if (!memorySection.querySelector('ul')) {
-                memoryArray.push(mainDisplay.innerHTML);
-                mPlusFunc(memoryArray);
-            } else {
-                mPlusFunc(memoryArray);
-            }
+            memorySection.querySelector('ul') ? mPlusFunc(memoryArray) : (memoryArray.push(mainDisplay.innerHTML), mPlusFunc(memoryArray));
             break;
         case 'm-minus':
-            if (!memorySection.querySelector('ul')) {
-                memoryArray.push(-mainDisplay.innerHTML);
-                mMinusFunc(memoryArray);
-            } else {
-                mMinusFunc(memoryArray);
-            }
+            memorySection.querySelector('ul') ? mMinusFunc(memoryArray) : (memoryArray.push(-mainDisplay.innerHTML), mMinusFunc(memoryArray));
             break;
         case 'ms':
             memoryArray.push(mainDisplay.innerHTML);
