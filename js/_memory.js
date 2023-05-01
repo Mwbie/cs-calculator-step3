@@ -64,7 +64,6 @@ export function mPlusFunc(array) {
             let currentNumber = +memoryArray[0];
             currentNumber += +mainDisplay.innerHTML
             spanNumber.innerHTML = currentNumber
-            console.log(memoryArray[0]);
             memoryArray[0] = currentNumber;
             console.log(memoryArray);
 
@@ -75,7 +74,6 @@ export function mPlusFunc(array) {
             let currentNumber = +memoryArray[0];
             currentNumber -= +mainDisplay.innerHTML
             spanNumber.innerHTML = currentNumber
-            console.log(memoryArray[0]);
             memoryArray[0] = currentNumber;
             console.log(memoryArray);
 
@@ -189,11 +187,12 @@ export function msFunc(numbArray) {
                 </ul>`
         );
 
+
         const mainUl = document.querySelector('.hover')
-        // mainUl.addEventListener('dblclick', () => {
-        //     let lastNumb = memoryArray[index]
-        //     mainDisplay.innerHTML = lastNumb
-        // })
+        mainUl.addEventListener('dblclick', () => {
+            let lastNumb = memoryArray[index]
+            mainDisplay.innerHTML = lastNumb
+        })
         let buttonsContainer = document.getElementById('buttons-container')
         mainUl.addEventListener('mouseenter', () => {
             buttonsContainer.style.visibility = ' visible'
