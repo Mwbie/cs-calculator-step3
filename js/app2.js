@@ -23,11 +23,7 @@ let calcArray = {
 
 //functions
 const calculation = () => {
-    if (!temp) {
-        result = calcArray.numbers[0] ;
-    } else {
-        result = temp;
-    }
+    result = !temp ? calcArray.numbers[0] : temp;
     for (let i = 0; i < calcArray.operators.length; i++) {
         const operator = calcArray.operators[i];
         const number = calcArray.numbers[i + 1];
@@ -162,9 +158,7 @@ histroryMemory.addEventListener('click', (e) => {
 buttonContainer.addEventListener('click', (e) => {
     switch (e.target.classList[0]) {
         case 'number':
-            if (mainDisplay.innerHTML == 0) {
-                mainDisplay.innerHTML = ''
-            }
+            mainDisplay.innerHTML = (mainDisplay.innerHTML == 0) ? '' : mainDisplay.innerHTML;
             mainDisplay.innerHTML += e.target.textContent;
             break;
         case 'sign':
@@ -186,12 +180,9 @@ buttonContainer.addEventListener('click', (e) => {
                     pointFlag = false
                     break;
                 case 'btn-equal':
-                    if (mainDisplay.textContent == '0') {
-                        return
-                    } else {
-                        calcArray.numbers.push(parseFloat(mainDisplay.innerHTML));
-                        calculation()
-                    }
+                    mainDisplay.textContent == '0' ? 
+                    undefined : 
+                    (calcArray.numbers.push(parseFloat(mainDisplay.innerHTML)), calculation())                
                     showHistory(historyArray)
                     secondaryDisplay.innerHTML += ' ='
                     break;
@@ -199,76 +190,41 @@ buttonContainer.addEventListener('click', (e) => {
                     mainDisplay.innerHTML = 0
                     secondaryDisplay.innerHTML = ''
                     pointFlag = false;
-                    // resultFlag = false;
                     calcArray.numbers = [];
                     calcArray.operators = [];
-                    historyArray = [];
+                    historyArray.length = 0 ;
                     temp = '';
                     break;
                 case 'btn-back-space':
                     let len = mainDisplay.innerHTML.length
                     let lastDigit = mainDisplay.innerHTML.slice(len - 1, len)
-                    if (lastDigit == '.') {
-                        pointFlag = false
-                    }
-                    if (len > 1) {
-                        mainDisplay.innerHTML = mainDisplay.innerHTML.slice(0, len - 1)
-                    } else {
-                        mainDisplay.innerHTML = 0
-                    }
+                    pointFlag = (lastDigit == '.') ? false : pointFlag
+                    mainDisplay.innerHTML = (len > 1) ? mainDisplay.innerHTML.slice(0, len - 1) : '0'
                     break;
                 case 'btn-percentage':
-                    if (result.toString().match('.')) {
-                        pointFlag = true
-                    }
-                    if (result) {
-                        result = result / 100
-                        mainDisplay.innerHTML = result
-                    }
+                    result.toString().match('.') ? pointFlag = true : null;
+                    result ? (result = result / 100, mainDisplay.innerHTML = result) : null;                    
                     break;
                 case 'btn-last-clear':
                     mainDisplay.innerHTML = 0
                     break;
                 case 'btn-radical':
-                    if (mainDisplay.textContent == '0') {
-                        return
-                    } else {
-                        result = Math.sqrt(+mainDisplay.textContent)
-                        mainDisplay.textContent = result
-                    }
+                    mainDisplay.textContent == '0' ? null : (result = Math.sqrt(+mainDisplay.textContent), mainDisplay.textContent = result)
                     break;
                 case 'btn-pow-two':
-                    if (mainDisplay.textContent == '0') {
-                        return
-                    } else {
-                        result = Math.pow(+mainDisplay.textContent, 2)
-                        mainDisplay.textContent = result
-                    }
+                    mainDisplay.textContent == '0' ? null : (result = Math.pow(+mainDisplay.textContent, 2), mainDisplay.textContent = result);
                     break;
                 case 'btn-pow-three':
-                    if (mainDisplay.textContent == '0') {
-                        return
-                    } else {
-                        result = Math.pow(+mainDisplay.textContent, 3)
-                        mainDisplay.textContent = result
-                    }
+                    mainDisplay.textContent == '0' ? null : (result = Math.pow(+mainDisplay.textContent, 3), mainDisplay.textContent = result);
                     break;
                 case 'btn-one-div':
-                    if (mainDisplay.textContent == '0') {
-                        return
-                    } else {
-                        result = 1 / +mainDisplay.textContent
-                        mainDisplay.textContent = result
-                    }
+                    mainDisplay.textContent == '0' ? null : (result = 1 / +mainDisplay.textContent, mainDisplay.textContent = result)
                     break;
                 case 'btn-Pn':
                     mainDisplay.innerHTML = mainDisplay.innerHTML * -1
                     break;
                 case 'btn-point':
-                    if (pointFlag == false) {
-                        mainDisplay.innerHTML += '.'
-                        pointFlag = true
-                    }
+                    pointFlag ? mainDisplay.innerHTML : (mainDisplay.innerHTML += '.', pointFlag = true);
                     break;
 
                 default:
