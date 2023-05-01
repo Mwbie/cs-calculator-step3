@@ -1,0 +1,44 @@
+/* theme */
+:root[data-theme="main-theme"] {
+    --color-container: rgba(210, 210, 210, 0.913);
+    --color-sign: rgb(236, 234, 234);
+    --color-number: #fff;
+    --color-hover: rgba(128, 128, 128, 0.618);
+    --color-hover-ul: rgba(148, 142, 142, 0.618);
+    --font-family: "Segoe UI";
+    --radius: 0;
+  }
+  :root[data-theme="green"] {
+    --color-container: rgba(212, 251, 94, 0.938);
+    --color-sign: #79d10e;
+    --color-number: #aae740e5;
+    --color-hover: #15520a9a;
+    --color-hover-ul: #15520a9a;
+    --color-mc-mr: rgb(19, 73, 19);
+    --radius: 15px;
+    --font-family: " serif";
+  }
+  :root[data-theme="black"] {
+    --color-container: linear-gradient(0deg, #d9afd9 0%, #97d9e1 100%);
+    --color-sign: #b86fb8;
+    --color-number: #97d9e1;
+    --color-mc-mr: order;
+    --color-hover: #47abb6;
+    --color-hover-ul: #47abb6;
+    --color-font: rgba(255, 255, 255, 0.807);
+    --radius: 50%;
+    --font-family: "Roboto";
+  }
+  
+  :root[data-theme="blue"] {
+    --color-container: #bcdefb;
+    --color-sign: #4fb3f6;
+    --color-number: #6fd0f9e5;
+    --color-hover: #0866ea;
+    --color-hover-ul: rgba(8, 102, 234, 1) !important;
+    --color-mc-mr: #004f79;
+    --color-font: #111525;
+    --radius: 40px 0;
+    --font-family: Lucida Sans Unicode, "Lucida Sans";
+  }
+  
