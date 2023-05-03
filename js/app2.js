@@ -193,8 +193,9 @@ buttonContainer.addEventListener('click', (e) => {
                         calculation(calcArray.numbers , calcArray.operators)
                     }
                     showHistory(historyArray)
-                    console.log(calcArray);
-                    // secondaryDisplay.innerHTML += ' ='
+                     if(result){
+                         secondaryDisplay.innerHTML += ' ='
+                     }
                     break;
                 case 'btn-clear':
                     mainDisplay.innerHTML = 0
