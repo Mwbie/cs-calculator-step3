@@ -1,6 +1,6 @@
 export const historySection = document.querySelector('#history-section');
 export const historyMsg = document.querySelector('#history-msg')
-export var historyArray = []
+export let historyArray = []
 export const historyTrash = document.querySelector('#history-trash')
 const historyIcon = document.querySelector('.history-icon')
 const historyButton = document.querySelector('#history')
