@@ -11,7 +11,7 @@ const secondaryDisplay = document.querySelector('#first-number');
 let result;
 let pointFlag = false;
 let temp;
-let icons = document.querySelector('.icons')
+let icons = document.querySelector('.icons');
 let calcArray = {
     numbers: [],
     operators: [],
@@ -22,7 +22,9 @@ let calcArray = {
 
 
 //functions
-const calculation = () => {
+const calculation = (numbArray , opArray) => {
+    console.log('we are in calculation') ;
+    console.log(calcArray);
     result = !temp ? calcArray.numbers[0] : temp;
     for (let i = 0; i < calcArray.operators.length; i++) {
         const operator = calcArray.operators[i];
@@ -158,7 +160,7 @@ histroryMemory.addEventListener('click', (e) => {
 buttonContainer.addEventListener('click', (e) => {
     switch (e.target.classList[0]) {
         case 'number':
-            mainDisplay.innerHTML = (mainDisplay.innerHTML == 0) ? '' : mainDisplay.innerHTML;
+            mainDisplay.innerHTML = (mainDisplay.innerHTML == 0 && !pointFlag) ? '' : mainDisplay.innerHTML;
             mainDisplay.innerHTML += e.target.textContent;
             break;
         case 'sign':
@@ -180,11 +182,19 @@ buttonContainer.addEventListener('click', (e) => {
                     pointFlag = false
                     break;
                 case 'btn-equal':
-                    mainDisplay.textContent == '0' ? 
-                    undefined : 
-                    (calcArray.numbers.push(parseFloat(mainDisplay.innerHTML)), calculation())                
+                    if(calcArray.operators.length == 0){
+                        return
+                    }else{ 
+                        if(mainDisplay.innerHTML === '0'){
+                            calcArray.numbers[calcArray.numbers.length] = calcArray.numbers[calcArray.numbers.length -1 ]
+                        }else{
+                            calcArray.numbers.push(parseFloat(mainDisplay.innerHTML))
+                        }
+                        calculation(calcArray.numbers , calcArray.operators)
+                    }
                     showHistory(historyArray)
-                    secondaryDisplay.innerHTML += ' ='
+                    console.log(calcArray);
+                    // secondaryDisplay.innerHTML += ' ='
                     break;
                 case 'btn-clear':
                     mainDisplay.innerHTML = 0
@@ -224,6 +234,7 @@ buttonContainer.addEventListener('click', (e) => {
                     mainDisplay.innerHTML = mainDisplay.innerHTML * -1
                     break;
                 case 'btn-point':
+                    debugger
                     pointFlag ? mainDisplay.innerHTML : (mainDisplay.innerHTML += '.', pointFlag = true);
                     break;
 

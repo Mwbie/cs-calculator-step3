@@ -85,18 +85,18 @@ div.result {
     display: flex;
     flex-direction: column;
     align-self: flex-end;
+    align-items: flex-end;
   }
   .result .zero {
     align-self: flex-end;
     padding-right: 20px;
     justify-content: flex-end;
-    font-size: calc(1.8rem + 3.3vh);
+    font-size: calc(2rem + 3.5vh);
     font-weight: 500;
     color: var(--color-font);
   }
   #first-number {
-    position: relative;
-    left: 0;
+    padding-right: 20px;
   }
 .m {
   position: relative;
