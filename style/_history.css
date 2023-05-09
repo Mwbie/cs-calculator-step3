@@ -1,67 +1,83 @@
 .history {
-    grid-area: history;
-    margin-top: 5px;
-  }
-  .history h5 {
-    margin-top: 37px;
-    font-weight: 600;
-    font-size: 1.1rem;
-  }
-  .history p {
-    font-size: 1rem;
-  }
-  
-  .history ul {
-    width: 100%;
-    display: block;
-    text-align: end;
-    padding-right: 10px;
-  }
-  /* .history p:hover{
+  grid-area: history;
+  margin-top: 5px;
+}
+.history h5 {
+  margin-top: 30px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.history p {
+  font-size: 1rem;
+}
+
+.history ul {
+  width: 100%;
+  display: block;
+  text-align: end;
+  padding-right: 10px;
+  padding-bottom: 6px;
+}
+/* .history p:hover{
   background-color: var(--color-hover) !important;
   } */
-  
-  .hover:hover {
-    background-color: var(--color-hover-ul) !important;
-  }
-  .history-hover:hover {
-    background-color: var(--color-hover-ul) !important;
-  }
-  .history ul li span {
-    font-weight: bold;
-    display: flex;
-    justify-content: flex-end;
-    color: var(--color-font);
-    background-color: unset;
-  }
-  .history h4 {
-    display: inline;
-    margin-right: 20px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .history h4.border-bottom {
-    border-bottom: 2px solid orange;
-  }
 
-  .trash {
-    display: none;
-    position: fixed;
-    bottom: 3px;
-    right: 4px;
-    cursor: pointer;
-    width: 25px;
-    height: 25px;
-  }
-  .trash:hover {
-    background-color: var(--color-hover);
-    border-radius: var(--radius);
-  }
-  
-  .trash i {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-    height: 100%;
-  }
+.hover:hover {
+  background-color: var(--color-hover-ul) !important;
+}
+.history-hover:hover {
+  background-color: var(--color-hover-ul) !important;
+}
+.history ul li span {
+  font-weight: bold;
+  display: flex;
+  justify-content: flex-end;
+  color: var(--color-font);
+  background-color: unset;
+}
+.history h4 {
+  display: inline;
+  margin-right: 20px;
+  font-weight: bold;
+  cursor: pointer;
+
+}
+.history h4.border-bottom {
+  border-bottom: 2px solid orange;
+
+}
+
+.trash {
+  display: none;
+  position: fixed;
+  bottom: 3px;
+  right: 4px;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+.trash:hover {
+  background-color: var(--color-hover);
+  border-radius: var(--radius);
+}
+
+.trash i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  height: 100%;
+}
+#buttons-container {
+  padding-right: 10px;
+  padding-bottom: 2px;
+}
+#buttons-container button {
+  height: 15px;
+  outline: none;
+  border: none;
+  width: 25px;
+  font-size: 10px;
+  cursor: pointer;
+  border-radius: 2px;
+}

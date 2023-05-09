@@ -50,7 +50,7 @@
           </span>
         </div>
         <span class="output">
-          <p id="first-number" style="color: #9b9999; font-size: 1rem "></p>
+          <p id="first-number" style="color: #9b9999; font-size: 1rem"></p>
           <p class="zero">0</p>
         </span>
 
@@ -60,22 +60,22 @@
           <button class="m-plus active">M+</button>
           <button class="m-minus active">M-</button>
           <button class="ms active">MS</button>
-          <button
-            class="m de-active sm-show"
-          >
-              M
-              <i class="fa-solid fa-sort-down" style="position: absolute"></i>
+          <button class="m de-active sm-show">
+            M
+            <i class="fa-solid fa-sort-down" style="position: absolute"></i>
           </button>
         </div>
       </div>
       <!--buttons section-->
       <div class="numbers">
-        <button id="btn-percentage" class="sign lg-row1">%</button>
+        <button id="btn-percentage" class="sign  lg-row1">%</button>
         <button id="btn-last-clear" class="sign">CE</button>
         <button id="btn-clear" class="sign">C</button>
 
         <button id="btn-back-space" class="sign">
           <img
+            class="sign"
+            id="btn-back-space"
             src="images/icons8-clear-symbol-50.png"
             width="18px"
             alt="back-space-icon"
@@ -90,11 +90,17 @@
         </button>
 
         <button id="btn-radical" class="sign lg-row1">&radic;</button>
-        <button class="number" >7</button>
+        <button class="number">7</button>
         <button class="number">8</button>
         <button class="number">9</button>
-        <button id="btn-mul" class="sign" style="z-index: 150;">
-          <img src="images/icons8-close-50.png" width="16px" alt="icon *" />
+        <button id="btn-mul" class="sign" style="z-index: 150">
+          <img
+            id="btn-mul"
+            class="sign"
+            src="images/icons8-close-50.png"
+            width="16px"
+            alt="icon *"
+          />
         </button>
 
         <button id="btn-pow-two" class="sign lg-row2">x<sup>2</sup></button>
@@ -138,26 +144,21 @@
           <h4 id="memory">Memory</h4>
         </span>
         <h5 id="history-msg">There's no history yet</h5>
-        <span id="history-trash" class="trash"  style="display: none;">
+        <span id="history-trash" class="trash" style="display: none">
           <i class="fa-solid fa-trash-can"></i>
         </span>
-        <h5 id="memory-msg" style="display: none;">There's nothing saved in memory</h5>
-        <span id="memory-trash" class="trash" style="display: none;">
+        <h5 id="memory-msg" style="display: none">
+          There's nothing saved in memory
+        </h5>
+        <span id="memory-trash" class="trash" style="display: none">
           <i class="fa-solid fa-trash-can"></i>
         </span>
-        <div >
-          
-          <div id="history-section">
-
-          </div>
-          <div id="memory-section" style="display: none;">
-
-          </div>
+        <div style="padding-left: 3px">
+          <div id="history-section"></div>
+          <div id="memory-section" style="display: none"></div>
         </div>
-
       </div>
     </div>
     <script type="module" src="./js/app2.js"></script>
-
   </body>
 </html>

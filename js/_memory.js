@@ -19,7 +19,7 @@ export function mPlusFunc(array) {
 
     let myDigit = 0;
     if (memorySection.querySelector('ul')) {
-     
+
         let spanNumber = document.querySelector('ul li p span')
         myDigit = +array[array.length - 1]
         myDigit = +myDigit + +mainDisplay.innerHTML;
@@ -32,9 +32,9 @@ export function mPlusFunc(array) {
     <p>
     <span id="numb-${0}">${mainDisplay.innerHTML}</span>
     <div id = 'buttons-container' style = "visibility: hidden;">
-                    <button id="mc-${0}"  style="outline: none; border: 1px solid rgba(70, 69, 69, 0.913); cursor: pointer;">MC</button>
-                    <button id="m-plus-${0}"  style=" outline: none; border: 1px solid rgba(70, 69, 69, 0.913); cursor: pointer;" >M+</button>
-                    <button id="m-minus-${0}" style=" outline: none; border: 1px solid rgba(70, 69, 69, 0.913); cursor: pointer;">M-</button>
+                    <button id="mc-${0}"  >MC</button>
+                    <button id="m-plus-${0}" >M+</button>
+                    <button id="m-minus-${0}" >M-</button>
                     </div>
                     </p>
             </li>
@@ -102,9 +102,9 @@ export function mMinusFunc(array) {
      <p>
      <span id="numb-${0}">${-mainDisplay.innerHTML}</span>
      <div id = 'buttons-container' style = "visibility: hidden;">
-                     <button id="mc-${0}"  style="outline: none; border: 1px solid rgba(70, 69, 69, 0.913); cursor: pointer;">MC</button>
-                     <button id="m-plus-${0}"  style=" outline: none; border: 1px solid rgba(70, 69, 69, 0.913); cursor: pointer;" >M+</button>
-                     <button id="m-minus-${0}" style=" outline: none; border: 1px solid rgba(70, 69, 69, 0.913); cursor: pointer;">M-</button>
+                     <button id="mc-${0}" >MC</button>
+                     <button id="m-plus-${0}">M+</button>
+                     <button id="m-minus-${0}">M-</button>
                      </div>
                      </p>
              </li>
@@ -178,9 +178,9 @@ export function msFunc(numbArray) {
         <p>
         <span id="numb-${index}">${numb}</span>
         <div id = 'buttons-container' style = "visibility: hidden;">
-                        <button id="mc-${index}"  style="outline: none; border: 1px solid rgba(70, 69, 69, 0.913); cursor: pointer;">MC</button>
-                        <button id="m-plus-${index}"  style=" outline: none; border: 1px solid rgba(70, 69, 69, 0.913); cursor: pointer;" >M+</button>
-                        <button id="m-minus-${index}" style=" outline: none; border: 1px solid rgba(70, 69, 69, 0.913); cursor: pointer;">M-</button>
+                        <button id="mc-${index}">MC</button>
+                        <button id="m-plus-${index}">M+</button>
+                        <button id="m-minus-${index}">M-</button>
                         </div>
                         </p>
                 </li>
@@ -315,7 +315,7 @@ window.addEventListener('resize', () => {
         memoryButton.style.display = 'none'
 
     } else {
-       
+
         numbers.style.display = 'flex'
         history.style.gridArea = 'history'
         history.style.display = 'block'

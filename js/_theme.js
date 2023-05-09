@@ -1,5 +1,5 @@
 const menuBtn = document.querySelector('#menu')
-let  root =  document.querySelector ('html');
+let root = document.querySelector('html');
 
 
 menuBtn.addEventListener('click', function () {
