@@ -24,3 +24,5 @@ Division of two numbers: 20 / 4 = 5
 Contact me
 
 To get in touch with the developers of this project, you can contact us through [Email : mwbinslh@gmail.com].
+ if you like it dont forget to give star.
+ 
