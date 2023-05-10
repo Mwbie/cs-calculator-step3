@@ -112,4 +112,3 @@ window.addEventListener('resize', () => {
   }
 })
 
-

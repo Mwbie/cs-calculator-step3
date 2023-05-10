@@ -4,7 +4,7 @@
   --color-sign: rgb(236, 234, 234);
   --color-number: #fff;
   --color-hover: rgba(128, 128, 128, 0.618);
-  --color-hover-ul: rgba(148, 142, 142, 0.618);
+  --color-hover-ul: rgba(128, 128, 128, 0.618);
   --font-family: "Segoe UI";
   --radius: 0;
 }

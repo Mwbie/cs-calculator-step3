@@ -303,3 +303,9 @@ icons.addEventListener('click', (e) => {
             break;
     }
 })
+
+// window.addEventListener('contextmenu',(e)=>{
+//   e.preventDefault();
+
+//   })
+ 
